@@ -2,9 +2,9 @@ using ETicaretAPI.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddPersistenceServices();
-
 builder.Services.AddControllers();
+
+builder.Services.AddPersistenceServices();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
