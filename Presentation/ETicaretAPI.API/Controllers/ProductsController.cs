@@ -19,6 +19,15 @@ namespace ETicaretAPI.API.Controllers
         [HttpGet]
         public async Task Get()
         {
+           //await TestProduct();
+
+            var product = await _productReadRepository.GetByIdAsync("e0cd520a-d9ea-461a-b96d-f6ff0cb32226", false);
+            product.Name = "Product deneme";
+            await _productWriteRepository.SaveAsync();
+        }
+
+        private async Task TestProduct()
+        {
             await _productWriteRepository.AddRangeAsync(new()
             {
                 new(){Id = Guid.NewGuid(),Name="Product 1",Price=100,CreatedDate=DateTime.UtcNow,Stock=10},
